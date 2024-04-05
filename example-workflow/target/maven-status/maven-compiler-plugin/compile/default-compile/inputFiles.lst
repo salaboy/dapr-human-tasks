@@ -1,6 +1,0 @@
-/Users/salaboy/code/salaboy/dapr-human-tasks/example-workflow/src/main/java/com/salaboy/echo/workflow/SimpleWorkflow.java
-/Users/salaboy/code/salaboy/dapr-human-tasks/example-workflow/src/main/java/com/salaboy/echo/workflow/WorkflowPayload.java
-/Users/salaboy/code/salaboy/dapr-human-tasks/example-workflow/src/main/java/com/salaboy/echo/EchoApplication.java
-/Users/salaboy/code/salaboy/dapr-human-tasks/example-workflow/src/main/java/com/salaboy/echo/config/CloudEventsWebMvcAutoConfiguration.java
-/Users/salaboy/code/salaboy/dapr-human-tasks/example-workflow/src/main/java/com/salaboy/echo/config/WebSocketConfig.java
-/Users/salaboy/code/salaboy/dapr-human-tasks/example-workflow/src/main/java/com/salaboy/echo/workflow/HumanTaskActivity.java
