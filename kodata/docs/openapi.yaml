@@ -1,0 +1,127 @@
+openapi: 3.0.3
+info:
+  title: Human Task Service
+  description: Human Task Service
+  version: 1.0.0
+  contact:
+    email: salaboy@diagrid.io
+    name: Mauricio Salatino
+    url: https://salaboy.com
+servers:
+  - url: "http://localhost:8080"
+paths:
+  /tasks/:
+    get:
+      summary: Get All Tasks
+      operationId: getAllTasks
+      tags:
+        - get-tasks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+    post:
+      summary: Create a Task
+      operationId: createTask
+      tags:
+        - tasks
+      responses:
+        "201":
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Task"
+  /tasks/{id}/start:
+    post:
+      summary: Start a Task
+      operationId: startTask
+      tags:
+        - start
+      parameters:
+        - name: id
+          in: path
+          description: Task ID
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: STARTED
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Task"
+  /tasks/{id}/complete:
+    post:
+      summary: Complete a Task
+      operationId: completeTask
+      tags:
+        - complete
+      parameters:
+        - name: id
+          in: path
+          description: Task ID
+          required: true
+          schema:
+            type: string  
+      responses:
+        "201":
+          description: COMPLETED
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Task" 
+  /tasks/{id}/assign:
+    post:
+      summary: Assign a Task
+      operationId: assignTask
+      tags:
+        - assign
+      parameters:
+        - name: id
+          in: path
+          description: Task ID
+          required: true
+          schema:
+            type: string  
+      responses:
+        "201":
+          description: ASSIGNED
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Task"                                                
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        payload:
+          type: object
+        workflowInstanceId:
+          type: string
+        appId:
+          type: string
+        assignee:
+          type: string
+        status:
+          type: string
+          enum: [Created, Assigned, Started, Completed]
